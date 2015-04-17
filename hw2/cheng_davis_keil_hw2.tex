@@ -46,7 +46,7 @@
 
 \begin{thm}The sum of the squares of the first $n$ Fibonacci numbers is $F_{n}(F_{n+1})$\end{thm}
 \begin{proof}
-Let $P(n)$ be the statement "the sum of the squares of the first $n$ Fibonacci numbers is $F_{n}(F_{n+1})$. We will prove, by induction, that $P(n)$ is true for all $n\geq1$, from which the theorem follows. 
+Let $P(n)$ be the statement ``the sum of the squares of the first $n$ Fibonacci numbers is $F_{n}(F_{n+1})$." We will prove, by induction, that $P(n)$ is true for all $n\geq1$, from which the theorem follows. 
 
 \item For our base case, we need to show that P(0) is true, meaning that the sum of the squares of the first zero Fibonacci numbers is $F_{0}(F_{0+1})$. Since the sum of the first zero Fibonacci numbers is zero, and $F_{0}(F_{0+1})$ is zero as well, we see that $P(0)$ is true.
 
@@ -101,6 +101,12 @@ Since the definition of ``a lot of rocks" states that ``if you remove one of the
 \begin{proof}
 By induction. Let $P(n)$ be ``it is always possible to tile a grid of size $2^n \times 2^n$ that's missing exactly one square (it doesn't matter which square) with right triominoes.'' We will prove that $P(n)$ is true for all natural numbers $n$. 
 
+\textbf{P(0) base case - in case we decide to go with this one}
+
+As our base case, we prove that $P(0)$ is true; that is, that it is possible to tile a grid of size $2^0 \times 2^0$ with any square missing with right triominoes. Since there is only one square in a $2^0 \times 2^0 = 1 \times 1$ grid, and the grid is missing exactly one square, it is trivially true that it is possible to tile the grid with right triominos.
+
+\textbf{P(1) base case}
+
 As our base case, we prove that $P(1)$ is true; that is, that it is possible to tile a grid of size $2^1 \times 2^1$ with any square missing with right triominoes. There are four possible squares in a $2 \times 2$ grid that can be missing: (a) top-left, (b) top-right, (c) bottom-right, (d) bottom-right. In each of these cases, we can place a single right triomino so that all the non-missing squares are covered (Figure \ref{fig:tile_base}).
 
 \begin{figure}[h]
@@ -112,7 +118,7 @@ As our base case, we prove that $P(1)$ is true; that is, that it is possible to 
 
 For the inductive step, assume that for some $k \in \mathbb{N}$ that $P(k)$ is true. This means that it is possible to tile a $2^k \times 2^k$ grid with any square missing with right triominoes. We will prove that $P(k+1)$ is true, that it is possible to tile a $2^{k+1} \times 2^{k+1}$ grid with any square missing with right triominoes. 
 
-Start with a $2^{k+1} \times 2^{k+1}$ grid with no squares missing, then remove a single square at any point in the grid. We will show that it is always possible to recreate this board by combinging four $2^k \times 2^k$ boards with a single square missing in each. 
+Start with a $2^{k+1} \times 2^{k+1}$ grid with no squares missing, then remove a single square at any point in the grid. We will show that it is always possible to recreate this board by combining four $2^k \times 2^k$ boards with a single square missing in each. 
 
 The larger board is made up of four quadrants, each of size $2^k \times 2^k$. The missing square must reside in one of these quadrants. From our inductive hypothesis we know that, taken alone, it is possible to tile this quadrant with right triominoes. 
 
@@ -132,9 +138,9 @@ When that triomino is placed on the board, we will have successfully tiled the o
 \end{proof}
 
 \section*{Problem 4: The Circle Game}
-Suppose that you have a circle with $2n$ arbitrary-chosen points on its circumfrence. $n$ of these points are labeled $+1$ and $n$ are labeled $-1$. Define this circle to be $C_n$. You can play a game where you choose one of these points as your starting point and then start moving clockwise around $C_n$. As you go, you'll pass through some number of $+1$ points and some number of $-1$ points. You lose the game if at any point in your journey you pass through more $-1$ points than $+1$ points. You win the game if you get all the way around to your starting point without losing.
+Suppose that you have a circle with $2n$ arbitrary-chosen points on its circumfrence. $n$ of these points are labeled $+1$ and $n$ are labeled $-1$. Define this circle to be $C_n$. You can play a game where you choose one of these points as your starting point and then start moving clockwise around $C_n$. As you go, you'll pass through some number of $+1$ points and some number of $-1$ points. You lose the game if at any point in your journey you pass through more $-1$ points than $+1$ points. You win the game if you get all the way around to your starting point without losing.\\
 \begin{nthm} \label{thm:circlethm}
-  For any $n \in \matbb{N}$ where $n \ge 1$, no matter which of the $n$ points are labeled $+1$ and which are labeled $-1$, there is always one point you can start at to win the game.
+  For any $n \in \mathbb{N}$ where $n \ge 1$, no matter which of the $n$ points are labeled $+1$ and which are labeled $-1$, there is always one point you can start at to win the game.
 \end{nthm}
 
 \begin{proof}
@@ -149,7 +155,7 @@ As our base case, we prove that $Q(1)$ is true. $C_1$ is a circle with a single 
 
 For the inductive step, assume that for some $k \in \mathbb{N}$ that $Q(k)$ is true. This means that there is at least one $(+1, -1)$ point pair on $C_k$. We will use this to prove that $Q(k+1)$ is true, that there is at least one $(+1, -1)$ clockwise point pair on $C_{k+1}$. 
 
-We can create $C_{k+1}$ by adding a $+1$ point and a $-1$ point anywhere on $C_k$. It is impossible to place either of these points in a way that breaks up the $(+1, -1)$ clockwise point pair that already exists on $C_k$. If we place the $+1$ between the existing $(+1, -1)$ pair, we create a new sequence $(+1, +1, -1)$ that still contains a $(+1, -1)$ clockwise point pair. If we place the $-1$ point between the existing $(+1, -1)$ pair, we create a new sequence $(+1, -1, -1)$ that still contains a $(+1, -1)$ clockwise point pair.
+We can create $C_{k+1}$ by adding a $+1$ point and a $-1$ point anywhere on $C_k$. It is impossible to place either of these points in a way that eliminates the presence of the $(+1, -1)$ clockwise point pair that already exists on $C_k$. If we place the $+1$ between the existing $(+1, -1)$ pair, we create a new sequence $(+1, +1, -1)$ that still contains a $(+1, -1)$ clockwise point pair. If we place the $-1$ point between the existing $(+1, -1)$ pair, we create a new sequence $(+1, -1, -1)$ that still contains a $(+1, -1)$ clockwise point pair.
 \end{proof}
 
 \begin{lem} \label{lemma:circle2}
@@ -157,19 +163,21 @@ If a $(+1, -1)$ point pair is added into a winning path, the path remains a winn
 \end{lem}
 
 \begin{proof}
-A winning path is defined as a path that never takes you through more $-1$ points than $+1$ points at any point in the journey. In other words, at any point the count of $+1$ points passed through $p$ must be $\ge$ the count of $-1$ points passed through $n$, or $p \ge n$. If we insert a $(+1, -1)$ clockwise point pair after any arbitrary point in a winning path and this inequality still holds at all points on the path, we will have shown that we can always insert a $(+1, -1)$ clockwise point pair into a winning path and it will remain a winning path. 
+A winning path is defined as a path that never takes you through more $-1$ points than $+1$ points at any point in the journey. In other words, at any point the count of $+1$ points passed through, $p$, must be $\ge$ the count of $-1$ points passed through, $n$, or $p \ge n$. If we insert a $(+1, -1)$ clockwise point pair after any arbitrary point in a winning path and this inequality still holds at all points on the path, we will have shown that we can always insert a $(+1, -1)$ clockwise point pair into a winning path and it will remain a winning path. 
 
-We insert a $(+1, -1)$ clockwise point pair into a winning path. No matter where we insert this, the inequality $p \ge n$ must hold at the point directly preceding the inserted pair. Passing through the first point in the $(+1, -1)$ clockwise point pair yields $(p+1) \ge n$. Passing throught the second point in the $(+1, -1)$ clockwise point pair yields $(p+1) \ge (n+1)$. Subtracting one from both sides gives $p \ge n$.
+We insert a $(+1, -1)$ clockwise point pair into a winning path. No matter where we insert this, the inequality $p \ge n$ must hold at the point directly preceding the inserted pair. Passing through the first point in the $(+1, -1)$ clockwise point pair yields $(p+1) \ge n$. Passing through the second point in the $(+1, -1)$ clockwise point pair yields $(p+1) \ge (n+1)$. Since the original path was a winning path, $p \ge n$ is true, so $(p+1) \ge n$ and $(p+1) \ge (n+1)$ must also be true.
+
+Thus, if a $(+1, -1)$ point pair is added into a winning path, the path remains a winning path.
 \end{proof}
 
-Now we can proceed with the proof of theorem \ref{thm:circlethm}. Let $P(n)$ be ``For any $n \in \matbb{N}$ where $n \ge 1$, no matter which of the $n$ points are labeled $+1$ and which are labeled $-1$, there is always one point you can start at to win the game.'' We will prove that $P(n)$ is true for all $n \ge 1$.
+Now we can proceed with the proof of theorem \ref{thm:circlethm}. Let $P(n)$ be ``For any $n \in \mathbb{N}$ where $n \ge 1$, no matter which of the $n$ points are labeled $+1$ and which are labeled $-1$, there is always one point you can start at to win the game.'' We will prove that $P(n)$ is true for all $n \ge 1$.
 
 As our base case, we prove that $P(1)$ is true. Because $C_1$ only has a single $+1$ point and a single $-1$ point, we immediately see that by starting at the $+1$ point we can win the game.
 
 For the inductive step, assume that for some $k \in \mathbb{N}$ that $P(k)$ is true, meaning there is a point you can start at on circle $C_k$ to win the game. Let's start with $C_{k+1}$, a circle with $k+1$ positive points and $k+1$ negtive points. By lemma \ref{lemma:circle1}, we know that there is at least one $(+1, -1)$ clockwise point pair on $C_{k+1}$. If we remove this pair we are left with a new circle $C_k$. From our inductive hypothesis, we know that there is at least one winning path on this circle. By lemma \ref{lemma:circle2}, we know that we can insert a $(+1, -1)$ clockwise point pair anywhere into this winning path and still have a winning path. This means we can insert the previously-removed $(+1, -1)$ clockwise point pair back into its original spot and the winning path will remain a winning path. This proves that there is at least one winning path in $C_{k+1}$. 
 \end{proof}
 
-\section{Problem 5: Binomial Trees}
+\section*{Problem 5: Binomial Trees}
 Binomial trees are a specific family of directed trees defined as follows: a binomial tree of order $n$ is a single node with $n$ children, which are binomial trees of order $0, 1, 2, \ldots, n-1$. 
 
 \begin{thm}
@@ -206,9 +214,9 @@ Letting $j = k+1$ gives us
 \end{equation*} 
 Plugging this into \ref{eq:bintree} gives us
 \begin{equation*}
-1 + 2^{k+1} - 1 = 2^{k+1}
+1 + (2^{k+1} - 1) = 2^{k+1}
 \end{equation*}
-
+Therefore, we have shown that a binomial tree of order n has exactly $2n$ nodes.
 \end{proof}
 
 \section*{Problem 6: Nim}
@@ -216,7 +224,7 @@ Plugging this into \ref{eq:bintree} gives us
 If the game of Nim  is played with just two piles of stones, each of which begins with exactly the same number of stones, then the second player can always win the game. 
 \end{thm}
 \begin{proof}
-Let P(n) be the statement "In every game which begins with two stone piles and with the exact same number of stones, n, the second player can always win." We will prove by induction that P(n) is true for all n $\geq$ 1, from which the theorem follows.
+Let P(n) be the statement ``In every game which begins with two stone piles and with the exact same number of stones, n, the second player can always win." We will prove by induction that P(n) is true for all n $\geq$ 1, from which the theorem follows.
 
 As a base case, we prove P(1), with two piles of 1 rock each the second player can always win. Player 1 must remove at least one rock and cannot remove rocks from more than one pile. Therefore, Player 1 will empty one pile. Player 2 can then always empty pile 2, leaving Player 1 with all empty piles. Player 2 then wins the game. 
 
@@ -224,9 +232,9 @@ For the inductive step, we assume there are there are k  $\in \mathbb{N}$ that P
 
 Since P(k) represents a pile with k rocks in each pile, P(k+1) means that one more rock has been added to each pile. Player 2 can always win in this game by removing the same number of rocks as Player 1, but from the opposite pile, for every turn. Take two possible cases using this strategy:
 
-Case 1: Player 1 removes all k+1 rocks from one pile. Player 2 can then remove all k+1 rocks from the other pile. Player 1 is then left with two empty piles, therefore Player 2 can always win. 
+\textbf{Case 1:} Player 1 removes all k+1 rocks from one pile. Player 2 can then remove all k+1 rocks from the other pile. Player 1 is then left with two empty piles, therefore Player 2 can always win. 
 
-Case 2: Player 1 removes some number of rocks between 1 and k from the pile. Player 2 removes the same number of rocks from the other pile. Both rock piles are now equal and there are between 1 and k rocks in each. 
+\textbf{Case 2:} Player 1 removes some number of rocks between 1 and k from the pile. Player 2 removes the same number of rocks from the other pile. Both rock piles are now equal and there are between 1 and k rocks in each. 
 From our inductive hypothesis we can then conclude that player 2 can always win this game. 
 
 Since Player 2 can always win in both cases when there are k+1 rocks in each pile, P(k+1) is true, completing the induction. 
@@ -237,7 +245,7 @@ Since Player 2 can always win in both cases when there are k+1 rocks in each pil
 Every tournament with at least one player has a tournament winner. 
 \end{thm}
 \begin{proof}
-Let P(n) be the statement " every tournament with n players has a tournament winner." We will prove by induction that P(n) is true for all n $\in \mathbb{N}$  and $\geq$ 1, from which the theorem follows.
+Let P(n) be the statement ``every tournament with n players has a tournament winner." We will prove by induction that P(n) is true for all n $\in \mathbb{N} \geq$ 1, from which the theorem follows.
 
 As a base case, we prove P(1), that any tournament with one player has a tournament winner. In a tournament with just one player, this player does not play against anyone else, and therefore accumulates only wins, making it vacuously true that he will be the tournament winner. 
 
@@ -245,11 +253,11 @@ For the inductive step, we assume there are k  $\in \mathbb{N}$ that P(1), P(2),
 
 Consider any tournament T with k+1 players. Choose any one player p and form two sub-tournaments, a sub tournament $T_0$ of all the players who beat p and a sub tournament $T_1$ of all the players p beat. Both of these sub-tournaments has from 0 to k players. Now we will split this problem into two possible cases. 
 
-Case 1: $T_0$ has 0 players. If this the case then player p has beaten every other player in the tournament($T_1$), and is therefore the tournament winner for tournament T, since there are no other players remaining in the tournament.  
+\textbf{Case 1:} $T_0$ has 0 players. If this the case then player p has beaten every other player in the tournament($T_1$), and is therefore the tournament winner for tournament T, since there are no other players remaining in the tournament.  
 
-Case 2: $T_0$ has at least one player. If this is the case, then by our inductive hypothesis, $T_0$ has a tournament winner W. W, like all members of $T_0$, has beaten p. Since p has beaten all of T's remaining players in $T_1$, W is also the tournament winner for tournament T. 
+\textbf{Case 2:} $T_0$ has at least one player. If this is the case, then by our inductive hypothesis, $T_0$ has a tournament winner W. W, like all members of $T_0$, has beaten p. Since p has beaten all of T's remaining players in $T_1$, W is also the tournament winner for tournament T. 
 
-Therefore, since there is a tournament winner in both cases of this arbitrary tournament of k+1 players, P(K+1) is true, completing the induction. 
+Therefore, since there is a tournament winner in both cases of this arbitrary tournament of k+1 players, P(k+1) is true, completing the induction. 
 
 \end{proof}
 
